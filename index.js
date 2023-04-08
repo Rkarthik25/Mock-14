@@ -3,12 +3,12 @@ const cors=require("cors")
 const connection=require("./db")
 
 const app=express()
-app.use(cors())
 app.use(express.json())
 const {accountRouter}=require("./routes/accout.router")
 
 
 require("dotenv").config
+app.use(cors())
 
 
 app.get("/",(req,res)=>{

@@ -30,7 +30,7 @@ const accountSchema= mongoose.Schema({
         required:true
     },
     panNo:{
-        type:Number,
+        type:String,
         required:true
     },
     statement:[],
