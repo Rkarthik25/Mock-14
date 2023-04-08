@@ -3,7 +3,7 @@ const express=require("express");
 
 const accountRouter= express.Router()
 
-const {accountModel} =require("../model/account.model")
+const {accountModel} =require("../models/account.model")
 
 accountRouter.post("/openAccount",async(req,res)=>{
     const payload=req.body
@@ -17,12 +17,6 @@ accountRouter.post("/openAccount",async(req,res)=>{
     }
    
 
-})
-
-accountRouter.get("/get",async(req,res)=>{
-
-    const account=await accountModel.find()
-    res.send(account)
 })
 
 accountRouter.patch("/updateKYC/:id", async(req,res)=>{

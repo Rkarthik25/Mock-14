@@ -1,10 +1,12 @@
 const express=require("express")
 const cors=require("cors")
+const connection=require("./db")
 
 const app=express()
+app.use(cors())
 app.use(express.json())
+const {accountRouter}=require("./routes/accout.router")
 
-const {connection}=require("./db")
 
 require("dotenv").config
 
@@ -12,6 +14,7 @@ require("dotenv").config
 app.get("/",(req,res)=>{
     res.send("hello world")
 })
+app.use("/",accountRouter)
 
 
 app.listen(3030,async()=>{
@@ -22,5 +25,5 @@ app.listen(3030,async()=>{
     catch(err){
         console.log(err)
     }
-    console.log("on port 3000")
+    console.log("on port 3030")
 })
